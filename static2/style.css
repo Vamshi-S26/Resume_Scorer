@@ -1,0 +1,71 @@
+/* Violet gradient background like the screenshot */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100%;
+    background: linear-gradient(135deg, #6a1b9a, #8e24aa, #ab47bc);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+/* Buttons */
+button, .btn {
+    background-color: #ffffff20;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+button:hover, .btn:hover {
+    background-color: #ffffff40;
+}
+
+/* Input and form elements */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #ffffff20;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 8px;
+}
+input::placeholder, textarea::placeholder {
+    color: #ddd;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #fff;
+}
+
+a {
+    color: #ffd1ff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Scanner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fefcea 0%, #f1da36 100%);
+            min-height: 100vh;
+            padding: 30px;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 850px;
+            background: rgba(255, 255, 204, 0.4); /* Light yellow */
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        h1, h3 {
+            text-align: center;
+            color: #444;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        hr {
+            border-color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            border-radius: 15px;
+            padding: 25px;
+            background-color: rgba(255, 255, 204, 0.6); /* Light yellow */
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            color: #333;
+            font-weight: 300;
+        }
+
+        label {
+            font-weight: 400;
+            color: #555;
+        }
+
+        .role-box {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e6e2a3;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 204, 0.9); /* Light yellow */
+            color: #333;
+            font-weight: 300;
+        }
+
+        .role-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .delete-btn {
+            background: transparent;
+            border: none;
+            color: #b33a3a;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            color: #7a1c1c;
+        }
+
+        .add-role-suggestion {
+            margin-top: 10px;
+            font-style: italic;
+            color: #7a6e00;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            background-color: #f1da36;
+            border: none;
+            color: #444;
+            font-weight: 400;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #d1b520;
+            color: #222;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            font-weight: 300;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Resume Scanner</h1>
+    <hr>
+
+    <!-- Resume Upload & Role Selection -->
+    <div class="card">
+        <h3>Upload Resumes & Select Roles</h3>
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('home') }}">
+            <div class="mb-3">
+                <label for="resumes" class="form-label">Upload Resumes (PDF, DOCX):</label>
+                <input class="form-control" type="file" name="resumes" multiple required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Search & Select Roles to Evaluate:</label>
+                <input type="text" class="form-control mb-2" id="roleSearch" placeholder="Type to filter roles...">
+
+                <div class="role-box" id="roleList">
+                    {% if all_roles %}
+                        {% for role in all_roles %}
+                        <div class="role-item">
+                            <div>
+                                <input class="form-check-input" type="checkbox" name="roles" value="{{ role }}" id="eval_{{ role }}">
+                                <label class="form-check-label" for="eval_{{ role }}">{{ role }}</label>
+                            </div>
+                            <button type="button" class="delete-btn" title="Delete Role" onclick="deleteRole('{{ role }}')">&times;</button>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No roles available. Please add a new role.</p>
+                    {% endif %}
+                </div>
+
+                <div id="addRoleSuggestion" class="add-role-suggestion" style="display:none;">
+                    Role not found.
+                    <button type="button" class="btn btn-sm btn-success mt-2" onclick="addNewRole()">Add this role</button>
+                </div>
+            </div>
+
+            <input type="hidden" id="newRoleInput" name="new_role" value="">
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-4 py-2">Analyze Resumes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    function deleteRole(roleName) {
+        if (confirm(`Are you sure you want to delete role: ${roleName}?`)) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = `{{ url_for('delete_role', role_name='') }}${encodeURIComponent(roleName)}`;
+            document.body.appendChild(form);
+            form.submit();
+        }
+    }
+
+    document.getElementById('roleSearch').addEventListener('input', function () {
+        const filter = this.value.toLowerCase().trim();
+        const roleItems = document.querySelectorAll('.role-item');
+        let anyVisible = false;
+
+        roleItems.forEach(item => {
+            const label = item.querySelector('label').textContent.toLowerCase();
+            if (label.includes(filter) || filter === '') {
+                item.style.display = '';
+                anyVisible = true;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        const addSuggestion = document.getElementById('addRoleSuggestion');
+        const newRoleInput = document.getElementById('newRoleInput');
+        if (!anyVisible && filter !== '') {
+            addSuggestion.style.display = 'block';
+            newRoleInput.value = filter;
+        } else {
+            addSuggestion.style.display = 'none';
+            newRoleInput.value = '';
+        }
+    });
+
+    function addNewRole() {
+        const newRole = document.getElementById('newRoleInput').value;
+        if (!newRole) return;
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = "{{ url_for('add_role') }}";
+
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'new_role';
+        input.value = newRole;
+        form.appendChild(input);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
+</body>
+</html>

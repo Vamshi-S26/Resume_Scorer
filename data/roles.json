@@ -1,0 +1,290 @@
+{
+  "AI Researcher": {
+    "model_path": "model/AI_Researcher_model.pkl",
+    "skills": [
+      "deep learning",
+      "pytorch",
+      "mathematics",
+      "publications",
+      "algorithms"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Android Developer": {
+    "model_path": "model/Android_Developer_model.pkl",
+    "skills": [
+      "java",
+      "kotlin",
+      "android sdk",
+      "firebase",
+      "xml"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Backend Developer": {
+    "model_path": "model/Backend_Developer_model.pkl",
+    "skills": [
+      "python",
+      "django",
+      "rest apis",
+      "sql",
+      "docker"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Blockchain Developer": {
+    "model_path": "model/Blockchain_Developer_model.pkl",
+    "skills": [
+      "solidity",
+      "ethereum",
+      "smart contracts",
+      "web3",
+      "cryptography"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Cloud Architect": {
+    "model_path": "model/Cloud_Architect_model.pkl",
+    "skills": [
+      "aws",
+      "gcp",
+      "azure",
+      "terraform",
+      "cloud networking"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Cybersecurity Analyst": {
+    "model_path": "model/Cybersecurity_Analyst_model.pkl",
+    "skills": [
+      "network security",
+      "firewalls",
+      "ethical hacking",
+      "siem",
+      "encryption"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Data Scientist": {
+    "model_path": "model/Data_Scientist_model.pkl",
+    "skills": [
+      "python",
+      "machine learning",
+      "data analysis",
+      "pandas",
+      "numpy"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Database Administrator": {
+    "model_path": "model/Database_Administrator_model.pkl",
+    "skills": [
+      "sql",
+      "oracle",
+      "performance tuning",
+      "postgresql",
+      "backups"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "DevOps Engineer": {
+    "model_path": "model/DevOps_Engineer_model.pkl",
+    "skills": [
+      "docker",
+      "kubernetes",
+      "jenkins",
+      "aws",
+      "linux"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Frontend Developer": {
+    "model_path": "model/Frontend_Developer_model.pkl",
+    "skills": [
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "git"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Full Stack Developer": {
+    "model_path": "model/Full_Stack_Developer_model.pkl",
+    "skills": [
+      "html",
+      "css",
+      "javascript",
+      "node.js",
+      "mongodb"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Game Developer": {
+    "model_path": "model/Game_Developer_model.pkl",
+    "skills": [
+      "unity",
+      "c#",
+      "game physics",
+      "level design",
+      "animation"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "IoT Developer": {
+    "model_path": "model/IoT_Developer_model.pkl",
+    "skills": [
+      "arduino",
+      "raspberry pi",
+      "mqtt",
+      "iot protocols",
+      "c++"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Machine Learning Engineer": {
+    "model_path": "model/Machine_Learning_Engineer_model.pkl",
+    "skills": [
+      "tensorflow",
+      "keras",
+      "python",
+      "model training",
+      "scikit-learn"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "NLP Engineer": {
+    "model_path": "model/NLP_Engineer_model.pkl",
+    "skills": [
+      "nlp",
+      "transformers",
+      "spacy",
+      "bert",
+      "text classification"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "QA Engineer": {
+    "model_path": "model/QA_Engineer_model.pkl",
+    "skills": [
+      "selenium",
+      "test cases",
+      "bug reports",
+      "automation",
+      "jira"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Robotics Engineer": {
+    "model_path": "model/Robotics_Engineer_model.pkl",
+    "skills": [
+      "ros",
+      "control systems",
+      "c++",
+      "path planning",
+      "mechanical design"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "System Administrator": {
+    "model_path": "model/System_Administrator_model.pkl",
+    "skills": [
+      "linux",
+      "docker",
+      "kubernetes",
+      "aws",
+      "jenkins",
+      "shell scripting",
+      "troubleshooting",
+      "monitoring"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "UI/UX Designer": {
+    "model_path": "model/UI_UX_Designer_model.pkl",
+    "skills": [
+      "figma",
+      "sketch",
+      "wireframing",
+      "prototyping",
+      "user research"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "Web Developer": {
+    "model_path": "model/Web_Developer_model.pkl",
+    "skills": [
+      "html",
+      "css",
+      "javascript",
+      "bootstrap",
+      "php"
+    ],
+    "qualifications": [
+      "btech",
+      "mtech"
+    ]
+  },
+  "customer_care": {
+    "model_path": null,
+    "skills": [],
+    "qualifications": []
+  }
+}
