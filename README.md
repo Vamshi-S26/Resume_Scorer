@@ -43,7 +43,7 @@ It uses a realistic dataset and applies machine learning techniques to compute m
 
 📊 Sample Output 
 
-![ Output ](screenshots/csv_output.png)
+![ Output ](screenshots/output.png)
 
 ---
 
