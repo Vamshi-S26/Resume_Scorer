@@ -1,12 +1,12 @@
-# 🧠 Resume Scorer – AI-Powered Resume Evaluation
+# 🧠 Resume Scanner – AI-Powered Resume Evaluation
 
 ## 🚀 Overview  
-Resume Scorer is an intelligent microservice designed to evaluate student or candidate resumes against specific job roles such as *Amazon SDE*, *ML Internship*, and *GATE ECE*.  
+Resume Scanner is an intelligent microservice designed to evaluate student or candidate resumes against specific job roles such as *Amazon SDE*, *ML Internship*, and *GATE ECE*.  
 It uses a realistic dataset and applies machine learning techniques to compute match scores, identify missing skills, and provide targeted feedback.
 
 ---
 
-![Resume Scorer Homepage](screenshots/homepage.png)
+![Resume Scanner Homepage](screenshots/homepage.png)
 
 ---
 
